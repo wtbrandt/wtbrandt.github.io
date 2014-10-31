@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Wtbrandt.github.io : ">
+
+<link rel="stylesheet" href="../stylesheets/stylesheet.css">
+<link rel="stylesheet" href="../stylesheets/leaflet.awesome-markers.css">
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" >
+
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script src="http://calvinmetcalf.github.io/leaflet-ajax/dist/leaflet.ajax.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.0/leaflet.awesome-markers.js"></script>
+
+    <title>Wtbrandt.github.io</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/wtbrandt">View on GitHub</a>
+
+          <h1 id="project_title">Wtbrandt.github.io</h1>
+          <h2 id="project_tagline"></h2>
+
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+<div id="map" style="width: 800px; height: 600px"></div>
+
+<script>
+  // create Leaflet map object and set view's center and zoom level
+  var map = L.map('map').setView([38, -115], 7);        
+
+  // add background map layer
+  var Esri_NatGeoWorldMap = L.tileLayer(
+    'http://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}');
+  Esri_NatGeoWorldMap.addTo(map)
+  // add geojson of points
+var pts = new L.GeoJSON.AJAX('./pts_pinulong.geojson'); 
+pts.addTo(map)
+
+// add GeoJSON of points
+var ply = new L.GeoJSON.AJAX('./ply_pinulong.geojson'); 
+ply.addTo(map)
+  
+  
+</script>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
